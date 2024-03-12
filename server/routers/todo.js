@@ -5,7 +5,11 @@ const todoController = require("../controllers/todo")
 router.route('/')
     .post(todoController.createTodo)
     .get(todoController.getAllTodos)
-    .put(todoController.updateTodo)
-    .delete(todoController.deleteTodo)
+    .delete(todoController.deleteAllTodos)
 
-module.exports = router
+
+router.route('/:id')
+    .delete(todoController.deleteTodo)
+    .put(todoController.updateTodo);
+
+    module.exports = router
